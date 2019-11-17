@@ -4,7 +4,7 @@ import time
 from pathlib import Path
 import paho.mqtt.client as mqtt
 from ArduinoControll.ArduinoControll import ArduinoContoll
-from DeepLearning.PersonID import PeopleIdentifier
+
 
 
 class MQTT_Jetson_Communication:
@@ -19,7 +19,7 @@ class MQTT_Jetson_Communication:
         self.mqttc.subscribe("artificial_intelligence/encoder")
         self.low_level_control = ArduinoContoll("/dev/ttyUSB0")
 
-        self.people_id = PeopleIdentifier()
+        #self.people_id = PeopleIdentifier()
 
     def mqtt_on_message(self, client, userdata, msg):
         self.arduino_publish_actuator_data(msg)
@@ -58,7 +58,7 @@ class MQTT_Jetson_Communication:
                 # people_id.create_npy_encodig_data()
                 # people_id.rename_and_move_npy_file("Sol")
 
-                msg, list_of_true_or_false, n_faces, face_image = self.people_id.read_temporal_memory()
+                #msg, list_of_true_or_false, n_faces, face_image = self.people_id.read_temporal_memory()
                 print(msg)
                 print(list_of_true_or_false)
 
@@ -87,7 +87,7 @@ class MQTT_Jetson_Communication:
 
 # ----------------------------------------------
 
-ip_adress = "192.168.0.106"
+ip_adress = "Snip-Ip"
 
 mqtt_comm = MQTT_Jetson_Communication(ip_adress)
 

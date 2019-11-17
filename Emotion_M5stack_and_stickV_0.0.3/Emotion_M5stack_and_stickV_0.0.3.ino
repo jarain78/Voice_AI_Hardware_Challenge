@@ -16,8 +16,8 @@ Adafruit_PWMServoDriver servos = Adafruit_PWMServoDriver(0x40);
 
 
 
-const char ssid[] = "SOL_JARA";
-const char pass[] = "PhD_Jaimico_Solete@1978";
+const char ssid[] = "---";
+const char pass[] = "---";
 
 char data = 0;
 uint16_t xPos = 0;
@@ -81,7 +81,7 @@ void setup() {
 
   WiFi.begin(ssid, pass);
 
-  client.begin("192.168.0.106", net);
+  client.begin("Snips-ip", net);
   client.onMessage(messageReceived);
 
   connect();
